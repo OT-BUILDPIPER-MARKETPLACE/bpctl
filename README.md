@@ -1,5 +1,5 @@
 # Bpctl
 ```
 #!/bin/bash
-python3 /home/amkt/okts/base/bpctl/lib/bpctl/bpctl.py "$@"
+python3 <bpctl-package-path>lib/bpctl/bpctl.py "$@"
 ```
