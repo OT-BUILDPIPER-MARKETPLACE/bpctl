@@ -12,7 +12,6 @@ class MyInstall(install):
         path = os.getcwd().replace(" ", "\ ").replace("(","\(").replace(")","\)")
         code_base_path = "/opt/bpctl"
         os.system("sudo cp -r " + path + " "+code_base_path)
-        binary_file_path = '/usr/bin/bpctl'
         os.system("""sudo sh -c 'echo "#!/bin/bash" > /usr/bin/bpctl'""")
         suffix = '\$@'
         os.system(f"""sudo sh -c 'echo "python3 {code_base_path}/lib/bpctl/bpctl.py {suffix}" >> /usr/bin/bpctl'""")
@@ -28,8 +27,8 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="bpctl",
-    version="1.33",
-    author="BP Team",
+    version="1.0",
+    author="Amit Kumar Tiwari",
     author_email="amit.tiwari@opstree.com",
     description="It is private package of bpctl",
     url="https://gitlab.com/ot-okts/base/bpctl",
