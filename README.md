@@ -9,4 +9,4 @@ pip install bpctl
 python3 <bpctl-package-path>lib/bpctl/bpctl.py "$@"
 ```
 2 Put this content into `/bin/bpctl`
-3 'chmod +x /bin/bpctl'
+3 `chmod +x /bin/bpctl`
