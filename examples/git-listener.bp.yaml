@@ -1,0 +1,19 @@
+---
+version: api/v1
+kind: BPGitEventListener
+metadata:
+  name: spring3hibernate-application-listener
+spec:
+  action_on_events:
+  - events:
+    - push
+    actions:
+    - action: PIPELINE_TRIGGER
+      project: EmployeeManagement
+      pipeline: spring3hibernate-build-pipeline
+      path: "."
+      payload_conditions: []
+      headers_conditions: []
+  is_pr_decorate: false
+  git_repo: spring3hibernate-repo
+

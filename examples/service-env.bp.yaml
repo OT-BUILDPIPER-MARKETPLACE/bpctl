@@ -1,0 +1,17 @@
+---
+version: api/v1
+kind: BPServiceEnv
+metadata:
+  name: EmployeeManagement/employee
+spec:
+  project_env: dev-default
+  manual_build: true
+  manual_deploy: true
+  project_job_template: employee-management-default
+  env_role_access:
+    - project_role: DEV
+      access: true
+    - project_role: QA
+      access: true
+    - project_role: DEVOPS
+      access: false

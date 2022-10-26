@@ -1,0 +1,8 @@
+---
+version: api/v1
+kind: BPGitRepo
+metadata:
+ name: manifest-git-repo
+spec:
+ git_provider: github
+ url: https://github.com

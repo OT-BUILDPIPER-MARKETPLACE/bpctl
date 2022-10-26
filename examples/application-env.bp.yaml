@@ -1,0 +1,13 @@
+---
+version: api/v1
+kind: BPApplicationEnv
+metadata:
+  name: dev-default-2
+spec:
+  environment_master: dev
+  application: EmployeeManagement
+  cluster: kubernetes
+  namespace: dev
+  manual_build: true
+  manual_deploy: true
+  registry: nexus

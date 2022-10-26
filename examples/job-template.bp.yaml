@@ -1,0 +1,89 @@
+---
+version: api/v1
+kind: BPProjectJobTemplate
+metadata:
+    name: employee-management-default
+spec:
+    name: employee-management-default
+    application: EmployeeManagement
+    job_template:
+      jobs:
+      - steps:
+        - step_code: CLONING_REPOSITORY
+          step_name: clone_repo
+          is_conditional_step: false
+          environment_variables:
+        - step_code: BUILD_DOCKER_IMAGE
+          step_name: build_image
+          is_conditional_step: false
+          environment_variables:
+        - step_code: PUSH_DOCKER_IMAGE
+          step_name: push_image
+          is_conditional_step: false
+          environment_variables:
+        - step_code: POST_HOOKS
+          step_name: post hook
+          is_conditional_step: false
+          environment_variables:
+        - step_code: SLACK_NOTIFY
+          step_name: slack notify
+          is_conditional_step: false
+          environment_variables:
+        job_code: build_job
+        job_name: Build Job
+      - steps:
+        - step_code: K8S_MANIFEST_APPLY
+          step_name: k8 deploy
+          is_conditional_step: false
+          environment_variables:
+        job_code: deploy_job
+        job_name: deploy_Job
+      - steps:
+        - step_code: K8S_MANIFEST_APPLY
+          step_name: deploy_configmaps
+          is_conditional_step: false
+          environment_variables:
+        job_code: deploy_configmaps_job
+        job_name: deploy_configmaps_Job
+      - steps:
+        - step_code: K8S_MANIFEST_APPLY
+          step_name: deploy_secrets
+          is_conditional_step: false
+          environment_variables:
+        job_code: deploy_secrets_job
+        job_name: deploy_secrets_Job
+      - steps:
+        - step_code: DOCKER_IMAGE_PROMOTE
+          step_name: docker_image_promote
+          is_conditional_step: false
+          environment_variables:
+        job_code: promote_job
+        job_name: promote Job
+      - steps:
+        - step_code: ROLLBACK
+          step_name: rollback
+          is_conditional_step: false
+          environment_variables:
+        job_code: rollback_job
+        job_name: rollback_Job
+      - steps:
+        - step_code: JIRA_INTEGRATION
+          step_name: jira_integration
+          is_conditional_step: false
+          environment_variables:
+            EMAIL: x@xyz.com
+            AUTH_TOKEN: r
+            SERVER_URL: r
+            PROJECT_NAME: Buildpiper
+        job_code: jira_integration_job
+        job_name: jira_integration_Job
+      - steps:
+        - step_code: INTEGRATION_TEST
+          step_name: integration_testing
+          is_conditional_step: false
+          environment_variables:
+        job_code: integration_job
+        job_name: integration_Job
+      default: true
+    default: false
+    user: amit.tiwari@opstree.com

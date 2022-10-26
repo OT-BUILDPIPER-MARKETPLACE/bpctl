@@ -1,0 +1,24 @@
+---
+version: api/v1
+kind: BPServiceCI
+metadata:
+  name: employee
+spec:
+  git_repo: emp
+  image_name: bjbdevelopment/testingrr/dev/dev
+  dockerfile_path: Dockerfile:.
+  buildx_platform:
+    - architecture: linux/amd64
+    - architecture: linux/arm64
+  buildkit_enabled: true
+  branch_name: master
+  language: NODEJS
+  sonar_project_key: testingrr-dev-rr
+  env_ci_build_variable:
+    - env_key: hi
+      env_value: hello
+  env_ci_hook:
+    - order: 1
+      action_type: PRE
+      command: ls
+  component_env: dev-default

@@ -1,0 +1,14 @@
+---
+version: api/v1
+kind: BPApplication
+metadata:
+  name: EmployeeManagement
+spec:
+  description: testing purpose
+  project_admin_email:
+    - amit.tiwari@gmail.com
+  project_cluster:
+    - dedicated: false
+      cluster: kubernetes
+      project_cluster_namespace:
+        - dev

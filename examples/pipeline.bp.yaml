@@ -1,0 +1,16 @@
+---
+version: api/v1
+kind: BPPipeline
+metadata:
+  name: build-deploy-pipeline
+spec:
+  tags:
+    - dev
+    - build
+  application: EmployeeManagement
+  retention_execution_count: 10
+  cron_regex:
+  default_run: false
+  pipeline_context_parameters:
+  trigger_type: manual
+  jira_references:

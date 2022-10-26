@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+bps:
+- bp:
+    server: http://127.0.0.1:9001
+  name: bp-dev
+contexts:
+- context:
+    bp: bp-dev
+    user: super-admin
+  name: super-admin@bp-dev
+current-context: super-admin@bp-dev
+kind: Config
+preferences: {}
+users:
+- name: super-admin
+  user:
+    username: b3BzdHJlZUBvcHN0cmVlLmNvbQ==
+    credential: T3BzdHJlZUAxMjM0NQ==
