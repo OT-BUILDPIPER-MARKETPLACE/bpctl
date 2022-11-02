@@ -13,4 +13,72 @@ spec:
   default_run: false
   pipeline_context_parameters:
   trigger_type: manual
-  jira_references:
+  jira_references: []
+  pipeline_role_access:
+    - project_role: DEV
+      access: true
+    - project_role: QA
+      access: true
+    - project_role: DEVOPS
+      access: false
+  stages:
+    - name: stage-1
+      approval: false
+      selected_users_pipeline_approval: [ ]
+      selected_roles_pipeline_approval: [ ]
+      roles_list: [ ]
+      send_mail: true
+      stage_run_condition: { }
+      approve_user: [ ]
+      order: 1
+      tasks:
+        - name: job_1
+          on_failure_exit: true
+          on_success_exit: false
+          project_job_template: employeemanagement-v2
+          project_env: dev-default
+          components:
+            - employee
+          tag: r-1
+          order: 1
+          task_type: build
+        - name: job_2
+          components:
+            - employee
+          on_failure_exit: true
+          on_success_exit: false
+          artifact_source: GENERATED
+          deployment_type: ROLLING_UPDATE
+          tag: generated
+          order: 2
+          task_type: deploy
+          project_env: dev-default
+    - name: stage-2
+      order: 2
+      approval: true
+      selected_users_pipeline_approval:
+        - amit.tiwari@opstree.com
+      selected_roles_pipeline_approval:
+        - project_admin
+      roles_list: [ ]
+      send_mail: true
+      stage_run_condition: { }
+      approve_user:
+        - id: 2
+          email: amit.tiwari@opstree.com
+          name: Amit Tiwari
+          role_master: Project Admin
+          role_master_id: 1
+      tasks:
+        - name: deploy-task
+          components:
+            - employee
+          on_failure_exit: true
+          on_success_exit: false
+          jira_key: PRIMARY
+          artifact_source: GENERATED
+          deployment_type: ROLLING_UPDATE
+          tag: generated
+          order: 1
+          task_type: deploy
+          project_env: dev-default
