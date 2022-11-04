@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceCI
 metadata:
-  name: employee
+  name: EmployeeManagement/dev/employee
 spec:
   git_repo: emp
   image_name: bjbdevelopment/testingrr/dev/dev

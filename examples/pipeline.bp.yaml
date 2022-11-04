@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPPipeline
 metadata:
-  name: build-deploy-pipeline
+  name: build-deploy-pipe
 spec:
   tags:
     - dev
@@ -35,7 +35,7 @@ spec:
         - name: job_1
           on_failure_exit: true
           on_success_exit: false
-          project_job_template: employeemanagement-v2
+          project_job_template: EmployeeManagement-v2
           project_env: dev-default
           components:
             - employee
@@ -64,15 +64,13 @@ spec:
       send_mail: true
       stage_run_condition: { }
       approve_user:
-        - id: 2
-          email: amit.tiwari@opstree.com
-          name: Amit Tiwari
+        - email: amit.tiwari@opstree.com
+          name: amit tiwari
           role_master: Project Admin
-          role_master_id: 1
       tasks:
         - name: deploy-task
           components:
-            - employee
+            - dev2
           on_failure_exit: true
           on_success_exit: false
           jira_key: PRIMARY

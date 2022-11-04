@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: employee
+  name: EmployeeManagement/dev/employee
 spec:
   component_env: dev-default
   service_name: rr-dev-rr
