@@ -6,6 +6,8 @@ metadata:
 spec:
     name: employee-management-default
     application: EmployeeManagement
+    default: false
+    user: amit.tiwari@opstree.com
     job_template:
       jobs:
       - steps:
@@ -85,5 +87,3 @@ spec:
         job_code: integration_job
         job_name: integration_Job
       default: true
-    default: false
-    user: amit.tiwari@opstree.com
