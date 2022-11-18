@@ -4,6 +4,6 @@ kind: BPGitRepo
 metadata:
   name: spring3hibernate-repo
 spec:
-  git_provider: github
-  url: https://github.com/opstree/spring3hibernate.git2
-  # credential: github-credential
+   git_provider: github
+   url: https://github.com/opstree/spring3hibernate.git
+   credential: credential-name

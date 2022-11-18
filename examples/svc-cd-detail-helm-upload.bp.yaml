@@ -1,0 +1,28 @@
+---
+version: api/v1
+kind: BPServiceCD
+metadata:
+    name: EmployeeManagement/dev/employee
+spec:
+    service_name: employee
+    image_name: employee-stage
+    deployment_name: employee-deployment
+    deployment_rollback_validation: false
+    env_cd_deploy_variable:
+    - env_key: image.tag
+      env_value: ${BP_IMAGE_TAG}
+    manifest_meta_data:
+      helm_git_repo: spring3hibernate-repo
+      helm_value_repo_branch: master
+      helm_file_paths:
+      - "spring/spring-manifest"
+      helm_release_name: 
+      strategy: HELM_UPLOADED_VALUES_FILE
+      value_file_paths:
+      - event_name: files
+        name: mainfest
+        content: YXBpVmVyc2lvbjogImFwcHMvdjEiCmtpbmQ6ICJEZXBsb3ltZW50IgptZXRhZGF0YToKICBuYW1lOiAidGVzdC1yYW4tZGV2LWRldjEiCiAgbmFtZXNwYWNlOiAicmVsZWFzZS10ZXN0LXJhbiIKICBsYWJlbHM6CiAgICBhcHA6ICJ0ZXN0LXJhbi1kZXYtZGV2MSIKICBhbm5vdGF0aW9uczoKICAgIHRpbWVzdGFtcDogIjIwMjIwODIzVDE5MzI0MCIKICAgIGRlcGxveW1lbnRfbnVtYmVyOiAiJDI3IgogICAgZGVwbG95bWVudF90YWc6ICJsYXRlc3QiCnNwZWM6CiAgcmVwbGljYXM6IDEKICBzdHJhdGVneToKICAgIHJvbGxpbmdVcGRhdGU6CiAgICAgIG1heFN1cmdlOiAiMTAwJSIKICAgICAgbWF4VW5hdmFpbGFibGU6ICI1JSIKICAgIHR5cGU6ICJSb2xsaW5nVXBkYXRlIgogIG1pblJlYWR5U2Vjb25kczogMAogIHJldmlzaW9uSGlzdG9yeUxpbWl0OiAxMAogIHByb2dyZXNzRGVhZGxpbmVTZWNvbmRzOiA2MDAKICBzZWxlY3RvcjoKICAgIG1hdGNoTGFiZWxzOgogICAgICBhcHA6ICJ0ZXN0LXJhbi1kZXYtZGV2MSIKICB0ZW1wbGF0ZToKICAgIG1ldGFkYXRhOgogICAgICBsYWJlbHM6CiAgICAgICAgYXBwOiAidGVzdC1yYW4tZGV2LWRldjEiCiAgICBzcGVjOgogICAgICBzZXJ2aWNlQWNjb3VudE5hbWU6ICJ0ZXN0LXJhbi1kZXYtZGV2MSIKICAgICAgdGVybWluYXRpb25HcmFjZVBlcmlvZFNlY29uZHM6IDMwCiAgICAgIGltYWdlUHVsbFNlY3JldHM6CiAgICAgICAgLSBuYW1lOiAibmV4dXMtcmVnY3JlZCIKICAgICAgY29udGFpbmVyczoKICAgICAgICAtIG5hbWU6ICJ0ZXN0LXJhbi1kZXYtZGV2MSIKICAgICAgICAgIGltYWdlOiAicmVnaXN0cnkuYnVpbGRwaXBlci5pbi90ZXN0LXJhbi9kZXYvZGV2MTpsYXRlc3QiCiAgICAgICAgICBpbWFnZVB1bGxQb2xpY3k6ICJBbHdheXMiCiAgICAgICAgICBwb3J0czoKICAgICAgICAgICAgLSBuYW1lOiAiaHR0cCIKICAgICAgICAgICAgICBjb250YWluZXJQb3J0OiA1MDAxCiAgICAgICAgICAgICAgcHJvdG9jb2w6ICJUQ1AiCiAgICAgICAgICByZXNvdXJjZXM6CiAgICAgICAgICAgIGxpbWl0czoKICAgICAgICAgICAgICBjcHU6ICIxMDBtIgogICAgICAgICAgICAgIG1lbW9yeTogIjEwME1pIgogICAgICAgICAgICByZXF1ZXN0czoKICAgICAgICAgICAgICBjcHU6ICIxMDBtIgogICAgICAgICAgICAgIG1lbW9yeTogIjEwME1pIgogICAgICAgICAgZW52OiBbXQogICAgICAgICAgdm9sdW1lTW91bnRzOiBudWxsCiAgICAgIG5vZGVTZWxlY3Rvcjoge30KICAgICAgYWZmaW5pdHk6IHt9CiAgICAgIHRvbGVyYXRpb25zOiBbXQogICAgICB2b2x1bWVzOiBudWxsCgo=
+    env_cd_deployment_strategy:
+      release_template: 
+    component_env: dev-default-2
+    

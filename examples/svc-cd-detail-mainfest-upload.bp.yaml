@@ -1,0 +1,29 @@
+---
+version: api/v1
+kind: BPServiceCD
+metadata:
+    name: EmployeeManagement/dev/employee
+spec:
+    service_name: employee
+    image_name: employee-stage
+    deployment_name: employee-deployment
+    deployment_rollback_validation: false
+    env_cd_deploy_variable:
+    - env_key: image.tag
+      env_value: ${BP_IMAGE_TAG}
+    manifest_meta_data:
+      strategy: UPLOADED_MANIFEST
+      manifest_file_paths:
+      - event_name: files
+        name: mainfest
+        content: LS0tCmFwaVZlcnNpb246IG5ldHdvcmtpbmcuazhzLmlvL3YxCmtpbmQ6IEluZ3Jlc3MKbWV0YWRhdGE6CiAgbmFtZXNwYWNlOiBkZWZhdWx0CiAgbmFtZTogaW5ncmVzcy1hbGIKICBhbm5vdGF0aW9uczoKICAgIGFsYi5pbmdyZXNzLmt1YmVybmV0ZXMuaW8vc2NoZW1lOiBpbnRlcm5ldC1mYWNpbmcKICAgIGFsYi5pbmdyZXNzLmt1YmVybmV0ZXMuaW8vdGFyZ2V0LXR5cGU6IGlwCnNwZWM6CiAgaW5ncmVzc0NsYXNzTmFtZTogYWxiCiAgcnVsZXM6CiAgICAtIGh0dHA6CiAgICAgICAgcGF0aHM6CiAgICAgICAgLSBwYXRoOiAvCiAgICAgICAgICBwYXRoVHlwZTogUHJlZml4CiAgICAgICAgICBiYWNrZW5kOgogICAgICAgICAgICBzZXJ2aWNlOgogICAgICAgICAgICAgIG5hbWU6IGFpcnBvcnQtY2FiLXNlcnZpY2UKICAgICAgICAgICAgICBwb3J0OgogICAgICAgICAgICAgICAgbnVtYmVyOiA4OQ==
+    env_cd_deployment_strategy:
+      deployment_type: ROLLING_UPDATE
+      max_surge: 100%
+      max_unavailable: 5%
+      minimum_ready: 0
+      progress_deadline: 600
+      termination_grace_period: 30
+      revision_history_limit: 10
+      release_template_id:
+    component_env: dev-default-2

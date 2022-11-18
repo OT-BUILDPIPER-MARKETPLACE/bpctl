@@ -1,0 +1,9 @@
+---
+version: api/v1
+kind: BPCredential
+metadata:
+ name: credential-name
+spec:
+    username: rere
+    credential: rere
+    credential_type: SSH_KEY
