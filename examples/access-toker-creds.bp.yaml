@@ -1,0 +1,8 @@
+---
+version: api/v1
+kind: BPCredential
+metadata:
+ name: credential-name
+spec:
+    credential: ghp_4blEbHxbg2PDDF89wwYqh3znwVMj14JfZBn
+    credential_type: ACCESS_TOKEN

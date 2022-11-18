@@ -1,0 +1,22 @@
+---
+version: api/v1
+kind: BPServiceCD
+metadata:
+    name: EmployeeManagement/dev/employee
+spec:
+    service_name: employee
+    image_name: employee-stage
+    deployment_name: employee-deployment
+    deployment_rollback_validation: false
+    env_cd_deploy_variable:
+    - env_key: image.tag
+      env_value: ${BP_IMAGE_TAG}
+    manifest_meta_data:
+      strategy: GIT_MANIFEST
+      manifest_git_repo: spring3hibernate-repo
+      manifest_git_repo_branch: master
+      manifest_file_paths:
+      - "spring/spring-manifest"
+    env_cd_deployment_strategy:
+      release_template:
+    component_env: dev-default-2

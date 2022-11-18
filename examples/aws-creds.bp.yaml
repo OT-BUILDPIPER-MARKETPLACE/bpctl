@@ -1,0 +1,10 @@
+---
+version: api/v1
+kind: BPCredential
+metadata:
+ name: credential-name
+spec:
+    credential_type: AWS_CREDENTIAL
+    key_value:
+        aws_access_key: rr
+        aws_secret_access_key: rr
