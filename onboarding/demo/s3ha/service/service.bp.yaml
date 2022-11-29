@@ -1,0 +1,19 @@
+---
+version: api/v1
+kind: BPService
+metadata:
+  name: baseinfra
+spec:
+  build_strategy: EVERY
+  external_name: s3ha-app
+  application: s3ha
+
+---
+version: api/v1
+kind: BPService
+metadata:
+  name: s3ha
+spec:
+  build_strategy: EVERY
+  external_name: s3ha-app
+  application: s3ha
