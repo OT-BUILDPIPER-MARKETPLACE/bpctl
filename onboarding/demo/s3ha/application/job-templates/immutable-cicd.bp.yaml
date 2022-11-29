@@ -1,0 +1,43 @@
+---
+version: api/v1
+kind: BPProjectJobTemplate
+metadata:
+    name: mutable-cicd
+spec:
+    name: mutable-cicd
+    application: s3ha
+    default: false
+    user: priyanshi.chauhan@opstree.com
+    job_template:
+      jobs:
+      - steps:
+        - step_code: CLONING_REPOSITORY
+          step_name: clone_repo
+          is_conditional_step: false
+          environment_variables:
+        - step_code: MVN_EXECUTE
+          step_name: Maven Execute
+          is_conditional_step: false
+          environment_variables:
+        - step_code: S3_FILE_UPLOADER
+          step_name: S3 File Upload
+          is_conditional_step: false
+          environment_variables:
+        job_code: build_job
+        job_name: Build Job
+      - steps:
+        - step_code: S3_FILE_DOWNLOADER
+          step_name: S3 File Download
+          is_conditional_step: false
+          environment_variables:
+        - step_code: MANAGE_REMOTE_PROCESS
+          step_name: Manage Remote Process
+          is_conditional_step: false
+          environment_variables:  
+        - step_code: SCP
+          step_name: Secure Copy
+          is_conditional_step: false
+          environment_variables:       
+        job_code: deploy_job
+        job_name: deploy_Job
+      
