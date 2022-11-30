@@ -11,5 +11,5 @@ spec:
   manual_build: true
   manual_deploy: true
   registry: nexus-rep
-  vault_access_token: 
-  sonar_access_token: 
+  # vault_access_token: 
+  # sonar_access_token: 
