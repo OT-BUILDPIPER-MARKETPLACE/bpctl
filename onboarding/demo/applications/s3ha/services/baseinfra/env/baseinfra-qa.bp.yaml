@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
-  name: s3ha/baseinfra
+  name: demo-aws-non-ms/baseinfra
 spec:
   project_env: qa
   manual_build: true
