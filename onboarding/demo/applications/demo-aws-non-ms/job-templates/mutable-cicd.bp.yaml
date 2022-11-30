@@ -6,7 +6,7 @@ metadata:
 spec:
     name: mutable-cicd
     version: v3
-    application: s3ha
+    application:  demo-aws-non-ms
     default: false
     description: Job Template for Non MS 
     user: priyanshi.chauhan@opstree.com
