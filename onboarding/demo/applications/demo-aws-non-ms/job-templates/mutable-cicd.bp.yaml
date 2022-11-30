@@ -8,7 +8,7 @@ spec:
     version: v3
     application:  demo-aws-non-ms
     default: false
-    description: Job Template for Non MS 
+    description: A template to deploy a immutable web app
     user: priyanshi.chauhan@opstree.com
     job_template:
       jobs:
@@ -21,26 +21,93 @@ spec:
           step_name: Maven Execute
           is_conditional_step: false
           environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
+          - key: INSTRUCTION
+            value: compile
+            isCustomVar: false
         - step_code: S3_FILE_UPLOADER
           step_name: S3 File Upload
           is_conditional_step: false
           environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
+          - key: S3_BUCKET
+            value: test-b01
+            isCustomVar: false
+          - key: FILE_TO_BE_UPLOADED
+            value: pom.xml
+            isCustomVar: false
+          - key: FILE_KEY
+            value: pom.xml
+            isCustomVar: false
+          - key: AWS_ACCESS_KEY_ID
+            value: AKIAYE7MEJDLEUCOCTMV
+            isCustomVar: false
+          - key: AWS_SECRET_ACCESS_KEY
+            value: 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
+            isCustomVar: false
         job_code: build_job
         job_name: Build Job
+        environment_variables:
+        - key: PROJECT_NAME
+          value: Buildpiper
       - steps:
         - step_code: S3_FILE_DOWNLOADER
           step_name: S3 File Download
           is_conditional_step: false
           environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
+          - key: S3_BUCKET
+            value: test-b01
+            isCustomVar: false
+          - key: FILE_KEY
+            value: s3ha/live/s3ha.war
+            isCustomVar: false
+          - key: FILE_PATH
+            value: target/s3ha.war
+            isCustomVar: false
+          - key: AWS_ACCESS_KEY_ID
+            value: AKIAYE7MEJDLEUCOCTMV
+            isCustomVar: false
+          - key: AWS_SECRET_ACCESS_KEY
+            value: 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
+            isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
           is_conditional_step: false
-          environment_variables:  
+          environment_variables:
+          - key: ACTION
+            value: stop
+            isCustomVar: false
+          - key: PROCESS
+            value: tomcat9
+            isCustomVar: false
+          - key: HOST
+            value: app
+            isCustomVar: false
         - step_code: SCP
           step_name: Secure Copy
           is_conditional_step: false
-          environment_variables:       
+          environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
+        - step_code: MANAGE_REMOTE_PROCESS
+          step_name: Manage Remote Process
+          is_conditional_step: false
+          environment_variables:
+          - key: ACTION
+            value: start
+            isCustomVar: false
         job_code: deploy_job
         job_name: deploy_Job
-      
+      default: true
+
+     
+
 
