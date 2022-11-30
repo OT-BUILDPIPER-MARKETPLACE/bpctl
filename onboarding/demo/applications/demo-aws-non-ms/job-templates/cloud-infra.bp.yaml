@@ -81,4 +81,27 @@ spec:
         environment_variables:
         - key: PROJECT_NAME
           value: Buildpiper
+      - steps:
+        - step_code: CLONING_REPOSITORY
+          step_name: clone_repo
+          is_conditional_step: false
+          environment_variables:
+        - step_code: NETWORK_SKELETON
+          step_name: AWS Network Skeleton Step
+          is_conditional_step: false
+          environment_variables:
+          - key: WORKSPACE
+            value: /bp/workspace
+            isCustomVar: false
+          - key: TF_CODE_LOCATION
+            value: terraform/network_skeleton
+            isCustomVar: false
+          - key: INSTRUCTION
+            value: apply
+            isCustomVar: false
+        job_code: NETWORK_SKELETON
+        job_name: Network Skeleton
+        environment_variables:
+        - key: PROJECT_NAME
+          value: Buildpiper
       default: true
