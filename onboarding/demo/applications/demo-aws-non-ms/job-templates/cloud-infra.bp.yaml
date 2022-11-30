@@ -40,6 +40,22 @@ spec:
           step_name: clone_repo
           is_conditional_step: false
           environment_variables:
-        job_code: deploy_job
-        job_name: deploy_Job
+        - step_code: EKS
+          step_name: AWS EKS Step
+          is_conditional_step: false
+          environment_variables:
+          - key: WORKSPACE
+            value: /bp/workspace
+            isCustomVar: false
+          - key: TF_CODE_LOCATION
+            value: terraform/eks
+            isCustomVar: false
+          - key: INSTRUCTION
+            value: apply
+            isCustomVar: false
+        job_code: EKS
+        job_name: EKS
+        environment_variables:
+        - key: PROJECT_NAME
+          value: Buildpiper
       default: true
