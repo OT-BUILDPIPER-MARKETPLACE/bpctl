@@ -58,4 +58,27 @@ spec:
         environment_variables:
         - key: PROJECT_NAME
           value: Buildpiper
+      - steps:
+        - step_code: CLONING_REPOSITORY
+          step_name: clone_repo
+          is_conditional_step: false
+          environment_variables:
+        - step_code: MSK
+          step_name: AWS MSK Step
+          is_conditional_step: false
+          environment_variables:
+          - key: WORKSPACE
+            value: /bp/workspace
+            isCustomVar: false
+          - key: TF_CODE_LOCATION
+            value: terraform/msk
+            isCustomVar: false
+          - key: INSTRUCTION
+            value: apply
+            isCustomVar: false
+        job_code: MSK
+        job_name: MSK
+        environment_variables:
+        - key: PROJECT_NAME
+          value: Buildpiper
       default: true
