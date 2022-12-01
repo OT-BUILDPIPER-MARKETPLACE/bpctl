@@ -1,0 +1,12 @@
+---
+version: api/v1
+kind: BPServiceCI
+metadata:
+ name: demo-ms/dev/emp-ui
+spec:
+  git_repo: ot-micro-frontend 
+  image_name: ot-micro-frontend-stage
+  dockerfile_path: Dockerfile:frontend
+  branch_name: master
+  language: JAVA
+  component_env: dev
