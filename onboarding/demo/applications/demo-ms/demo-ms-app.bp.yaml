@@ -1,0 +1,16 @@
+---
+version: api/v1
+kind: BPApplication
+metadata:
+  name: demo-ms
+spec:
+  description: application for ms
+  project_admin_email:
+    - sandeep@opstree.com
+    - surabhi.maheshwari@opstree.com
+    - priyanshi.chauhan@opstree.com
+  project_cluster:
+    - dedicated: false
+      cluster: test-kub-50001-vc
+      project_cluster_namespace:
+        - aman-test-fn-v

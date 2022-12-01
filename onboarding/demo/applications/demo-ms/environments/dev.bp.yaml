@@ -1,0 +1,15 @@
+---
+version: api/v1
+kind: BPApplicationEnv
+metadata:
+  name: dev
+spec:
+  environment_master: dev
+  application: demo-ms
+  cluster: test-kub-50001-vc
+  namespace: aman-test-fn-v
+  manual_build: true
+  manual_deploy: true
+  registry: nexus-rep
+  # vault_access_token: 
+  # sonar_access_token: 
