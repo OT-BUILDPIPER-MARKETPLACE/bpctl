@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceCI
 metadata:
- name: demo-ms/dev/emp-ui
+ name: demo-ms/qa/emp-ui
 spec:
   git_repo: ot-micro-frontend 
   image_name: ot-micro-frontend-stage
