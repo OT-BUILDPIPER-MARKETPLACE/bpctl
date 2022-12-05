@@ -21,10 +21,69 @@ spec:
           step_name: pre hook
           is_conditional_step: false
           environment_variables:
+        - step_code: SONAR_SCANNER
+          step_name: Sonar Scanner
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SONAR_ARGS: "-Dproject.settings=sonar.properties"
+            SLEEP_DURATION: 0s
+            VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: OWASP_DEPENDENCY_CHECK
+          step_name: OWASP Dependency Check
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            OWASP_REPORT: report
+            SLEEP_DURATION: 0s
+            OWASP_REPORT_FORMAT: CSV
+            VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: LICENSE_FINDER_STEP
+          step_name: License Finder Step
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SLEEP_DURATION: 0s
+            VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: DOCKER_LINTER
+          step_name: Docker Linter
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SLEEP_DURATION: 0s
+            DOCKERFILE_PATH: Dockerfile
+            VALIDATION_FAILURE_ACTION: WARNING
         - step_code: BUILD_DOCKER_IMAGE
           step_name: build_image
           is_conditional_step: false
           environment_variables:
+        - step_code: TRIVY_IMAGE_SCANNING
+          step_name: Trivy Image Scanning
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SCANNER: IMAGE
+            FORMAT_ARG: "--format template --template @/contrib/html.tpl"
+            OUTPUT_ARG: "-o trivy-report.html"
+            SCAN_SEVERITY: HIGH,CRITICAL
+            SLEEP_DURATION: 0s
+            VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: IMAGE_LAYER_VALIDATOR
+          step_name: Image Layer Validator
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SLEEP_DURATION: 0s
+            MAX_ALLOWED_IMAGE_LAYERS: '10'
+            VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: IMAGE_SIZE_VALIDATOR
+          step_name: Image Size Validator
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            SLEEP_DURATION: 0s
+            MAX_ALLOWED_IMAGE_SIZE: '180'
+            VALIDATION_FAILURE_ACTION: WARNING
         - step_code: PUSH_DOCKER_IMAGE
           step_name: push_image
           is_conditional_step: false
@@ -85,3 +144,6 @@ spec:
         job_code: integration_job
         job_name: integration_Job
       default: true
+
+
+
