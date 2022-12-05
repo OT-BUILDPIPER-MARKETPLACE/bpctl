@@ -7,7 +7,7 @@ spec:
   project_env: qa
   manual_build: true
   manual_deploy: true
-  project_job_template: ms-ci-v2
+  project_job_template: extensive-ci-v2
   env_role_access:
     - project_role: DEV
       access: true
