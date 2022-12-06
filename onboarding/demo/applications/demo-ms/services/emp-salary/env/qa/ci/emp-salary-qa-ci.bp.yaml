@@ -2,6 +2,7 @@
 version: api/v1
 kind: BPServiceCI
 metadata:
+  name: BPServiceCI
   application: demo-ms
   environment_master: qa
   service: emp-salary
