@@ -7,7 +7,7 @@ metadata:
   environment_master: qa
   service: emp-salary
 spec:
-  component_env: qa
+  application_env: qa
   service_name: salary
   image_name: ot-micro-salary-stage
   deployment_name: salary

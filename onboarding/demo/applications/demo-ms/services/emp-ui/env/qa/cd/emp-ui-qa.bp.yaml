@@ -4,7 +4,7 @@ kind: BPServiceCD
 metadata:
   name: demo-ms/qa/emp-ui
 spec:
-  component_env: qa
+  application_env: qa
   service_name: frontend
   image_name: ot-micro-frontend-stage
   deployment_name: frontend

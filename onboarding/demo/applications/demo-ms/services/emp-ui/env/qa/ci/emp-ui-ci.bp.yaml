@@ -9,4 +9,4 @@ spec:
   dockerfile_path: Dockerfile:frontend
   branch_name: master
   language: JAVA
-  component_env: qa
+  application_env: qa
