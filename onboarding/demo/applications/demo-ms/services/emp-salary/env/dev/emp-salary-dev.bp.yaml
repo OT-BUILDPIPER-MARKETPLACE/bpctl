@@ -6,15 +6,15 @@ metadata:
   service: emp-salary
   application: demo-ms
 spec:
-  project_env: dev
+  application_env: dev
   manual_build: true
   manual_deploy: true
-  project_job_template: extensive-ci-v2
+  application_job_template: extensive-ci-v2
   env_role_access:
-    - project_role: DEV
+    - application_role: DEV
       access: true
-    - project_role: QA
+    - application_role: QA
       access: true
-    - project_role: DEVOPS
+    - application_role: DEVOPS
       access: true
   environment_master: dev

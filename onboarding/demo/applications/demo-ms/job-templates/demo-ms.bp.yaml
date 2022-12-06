@@ -1,6 +1,6 @@
 ---
 version: api/v1
-kind: BPProjectJobTemplate
+kind: BPApplicationJobTemplate
 metadata:
     name: ms-ci-v2
 spec:
