@@ -2,7 +2,10 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: demo-ms/qa/emp-ui
+  name: BPServiceCD
+  application: demo-ms
+  environment_master: qa
+  service: emp-ui
 spec:
   application_env: qa
   service_name: frontend
