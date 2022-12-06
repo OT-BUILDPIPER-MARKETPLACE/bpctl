@@ -2,7 +2,8 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
-  name: demo-ms/emp-salary
+  service: emp-salary
+  application: demo-ms
 spec:
   project_env: qa
   manual_build: true

@@ -2,7 +2,8 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
-  name: demo-ms/emp-ui
+  service: emp-ui
+  application: demo-ms
 spec:
   project_env: dev
   manual_build: true

@@ -2,7 +2,9 @@
 version: api/v1
 kind: BPServiceCI
 metadata:
- name: demo-ms/dev/emp-salary
+  application: demo-ms
+  environment_master: dev
+  service: emp-salary
 spec:
   git_repo: ot-micro-salary 
   image_name: ot-micro-salary-stage
