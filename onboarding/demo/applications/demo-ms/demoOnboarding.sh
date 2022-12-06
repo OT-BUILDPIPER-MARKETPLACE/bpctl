@@ -13,7 +13,7 @@ function printDigitalMessage() {
 }
 function welcomeMessage() {
     printDigitalMessage "Welcome to the demo of bpctl"
-    printDigitalMessage "I'll demonstramte a microservices based appication"
+    printDigitalMessage "I'll demonstramte a microservices based appication!!!"
 }
 
 function pause() {
@@ -21,16 +21,16 @@ function pause() {
     printDigitalMessage "Press a key to continue........"
     read pause
     clear
-    printDigitalMessage "[[[[         BuildPiper|bpctl Demo         ]]]]"
+    printDigitalMessage "[[[[         BuildPiper  |  bpctl Demo         ]]]]"
 }
 
 function demoEnvironments() {
     printDigitalMessage "Great let's start"
     printDigitalMessage "As you know without environments we have no place where microservices can be deployed"
-    printDigitalMessage "So let's onboard 2 environments first dev & qa"
+    printDigitalMessage "So let's onboard 2 environments first, dev & qa"
     bpctl apply -f environments/dev.bp.yaml
     bpctl apply -f environments/qa.bp.yaml
-    printDigitalMessage "Want to view the environments"
+    printDigitalMessage "Want to view the environments?"
     printDigitalMessage "http://demo.buildpiper.in:56080/application/10/env/list"
     pause
 }
@@ -39,13 +39,12 @@ function demoJobTemplates() {
     printDigitalMessage "One last thing to do before MS onboarding"
     printDigitalMessage "Job Templates!!!!"
     printDigitalMessage "Job templates are the way you can bring governance & standardization in your org"
-    printDigitalMessage "Some of the examples"
-    printDigitalMessage "We will onboard 2 job templates in this demo"
-    printDigitalMessage "Extensive DevSecOps CI, having checks as Licence analysis, Cred scanning in code, Image scanning..."
+    printDigitalMessage "We will on-board 2 job templates in this demo"
     printDigitalMessage "Basic CI with only buidling docker image and publishing it"
+    printDigitalMessage "Extensive DevSecOps CI, having checks as Licence analysis, Cred scanning in code, Image scanning..."
     bpctl apply -f job-templates/demo-ms.bp.yaml
     bpctl apply -f job-templates/extensive-ci.bp.yaml
-    printDigitalMessage "Want to view the job templates"
+    printDigitalMessage "Want to view the job templates?"
     printDigitalMessage "http://demo.buildpiper.in:56080/application/10/job-templates"
     pause
 }
@@ -55,7 +54,7 @@ function demoMSOnBoarding() {
     printDigitalMessage "Let's start with MS onboarding!!!!"
     printDigitalMessage "We will onboard 2 microservices"
     printDigitalMessage "emp-ui & emp-salary"
-    printDigitalMessage "A MS onboarding is 3 step process"
+    printDigitalMessage "A MS onboarding is a 4 step process"
     printDigitalMessage "MS Meta info definition"
     printDigitalMessage "MS environment meta info definition"
     printDigitalMessage "MS CI configurations"
