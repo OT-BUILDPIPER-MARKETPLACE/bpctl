@@ -38,5 +38,4 @@ spec:
       protocol: TCP
       port: 8080
       access_level: PRIVATE
-      expose_url: ot-micro-frontend/dev/dev
       expose_path:

@@ -10,7 +10,5 @@ spec:
     - surabhi.maheshwari@opstree.com
     - priyanshi.chauhan@opstree.com
   project_cluster:
-    - dedicated: false
+    - dedicated: true
       cluster: test-kub-50001-vc
-      project_cluster_namespace:
-        - buildpiper-demo

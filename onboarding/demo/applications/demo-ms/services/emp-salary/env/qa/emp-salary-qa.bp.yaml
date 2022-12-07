@@ -9,7 +9,7 @@ spec:
   application_env: qa
   manual_build: true
   manual_deploy: true
-  application_job_template: extensive-ci-v2
+  application_job_template: devsecops-ci-v2
   env_role_access:
     - application_role: DEV
       access: true

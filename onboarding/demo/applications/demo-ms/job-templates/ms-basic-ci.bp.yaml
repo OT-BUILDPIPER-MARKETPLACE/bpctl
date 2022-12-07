@@ -2,9 +2,9 @@
 version: api/v1
 kind: BPApplicationJobTemplate
 metadata:
-    name: ms-ci-v2
+    name: ms-basic-ci-v2
 spec:
-    name: ms-ci-v2
+    name: ms-basic-ci-v2
     version: v2
     application:  demo-ms
     default: false
