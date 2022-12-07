@@ -2,9 +2,12 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: demo-ms/dev/emp-salary
+  name: emp-salary-cd
+  application: demo-ms
+  environment_master: dev
+  service: emp-salary
 spec:
-  component_env: dev
+  application_env: dev
   service_name: salary
   image_name: ot-micro-salary-stage
   deployment_name: salary

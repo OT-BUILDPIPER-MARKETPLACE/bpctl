@@ -2,11 +2,14 @@
 version: api/v1
 kind: BPServiceCI
 metadata:
- name: demo-ms/qa/emp-salary
+  name: emp-salary-ci
+  application: demo-ms
+  environment_master: qa
+  service: emp-salary
 spec:
   git_repo: ot-micro-salary 
   image_name: ot-micro-salary-stage
   dockerfile_path: Dockerfile:.
   branch_name: master
   language: JAVA
-  component_env: qa
+  application_env: qa

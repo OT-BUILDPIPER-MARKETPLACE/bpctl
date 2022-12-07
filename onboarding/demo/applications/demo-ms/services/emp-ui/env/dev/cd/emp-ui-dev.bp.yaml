@@ -2,9 +2,12 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: demo-ms/dev/emp-ui
+  name: emp-ui-cd
+  application: demo-ms
+  environment_master: dev
+  service: emp-ui
 spec:
-  component_env: dev
+  application_env: dev
   service_name: frontend
   image_name: ot-micro-frontend-stage
   deployment_name: frontend

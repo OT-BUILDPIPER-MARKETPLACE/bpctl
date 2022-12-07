@@ -2,14 +2,14 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
-  name: emp-ui-dev-env
-  service: emp-ui
-  application: demo-ms
+  name: baseinfra-dev-env
+  service: baseinfra
+  application: demo-aws-non-ms
 spec:
   application_env: dev
   manual_build: true
   manual_deploy: true
-  application_job_template: ms-ci-v2
+  application_job_template: cloud-infra
   env_role_access:
     - application_role: DEV
       access: true
