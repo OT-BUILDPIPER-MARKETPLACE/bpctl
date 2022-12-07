@@ -68,7 +68,7 @@ class BPManifest(BaseBPCtl):
 
     def error_response_handler(self, response_json, request_data):
         request_data_json = json.loads(request_data)
-        print(f"{request_data_json['kind']}/{request_data_json['metadata']['name']}\t errors:")
+        print(f"{request_data_json['kind']}/{self.get_metadata_print_str(request_data_json['metadata'])}\t errors:")
         if isinstance(response_json, list):
             for res in response_json:
                 print(res)
@@ -87,8 +87,24 @@ class BPManifest(BaseBPCtl):
                 flag = 'created'
             else:
                 flag = 'updated'
-            print(f"{res['kind']}/{res['metadata']['name']}\t{flag}")
+            print(f"{res['kind']}/{self.get_metadata_print_str(res['metadata'])}\t{flag}")
         return True
+
+    def get_metadata_print_str(self, metadata_response):
+        p_str = ''
+        if 'name' in metadata_response:
+            p_str += metadata_response['name'] + '/'
+        else:
+            if 'application' in metadata_response:
+                p_str += metadata_response['application'] + '/'
+            if 'service' in metadata_response:
+                p_str += metadata_response['service'] + '/'
+            if 'environment_master' in metadata_response:
+                p_str += metadata_response['environment_master'] + '/'
+            if 'application_env' in metadata_response:
+                p_str += metadata_response['application_env'] + '/'
+        return p_str[:-1]
+
 
     def yaml_parse_into_json(self, file_content):
         """
