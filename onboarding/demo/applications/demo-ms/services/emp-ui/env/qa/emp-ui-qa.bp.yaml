@@ -2,6 +2,7 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
+  name: emp-ui-qa-env
   service: emp-ui
   application: demo-ms
 spec:

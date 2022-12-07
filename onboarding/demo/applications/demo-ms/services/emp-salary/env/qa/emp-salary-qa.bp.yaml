@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceEnv
 metadata:
-  name: BPServiceEnv
+  name: emp-salary-qa-env
   service: emp-salary
   application: demo-ms
 spec:

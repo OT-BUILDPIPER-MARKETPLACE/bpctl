@@ -1,0 +1,8 @@
+---
+version: api/v1
+kind: BPGitRepo
+metadata:
+  name: ot-micro-frontend
+spec:
+   git_provider: github
+   url: https://github.com/opstree/OT-Microservices.git

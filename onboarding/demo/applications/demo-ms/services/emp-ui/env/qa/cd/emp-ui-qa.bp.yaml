@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: BPServiceCD
+  name: emp-ui-cd
   application: demo-ms
   environment_master: qa
   service: emp-ui

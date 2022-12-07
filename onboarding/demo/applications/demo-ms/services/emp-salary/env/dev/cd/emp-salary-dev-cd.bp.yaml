@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPServiceCD
 metadata:
-  name: BPServiceCD
+  name: emp-salary-cd
   application: demo-ms
   environment_master: dev
   service: emp-salary
