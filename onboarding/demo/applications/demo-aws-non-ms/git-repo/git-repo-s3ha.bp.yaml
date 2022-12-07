@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPGitRepo
 metadata:
-  name: s3ha-repo
+  name: s3ha
 spec:
    git_provider: github
    url: https://github.com/opstree/spring3hibernate.git

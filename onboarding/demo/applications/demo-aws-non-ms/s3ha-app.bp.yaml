@@ -13,4 +13,4 @@ spec:
     - dedicated: false
       cluster: test-kub-50001-vc
       project_cluster_namespace:
-        - aman-test-fn-v
+        - buildpiper-demo

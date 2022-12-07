@@ -1,6 +1,6 @@
 ---
 version: api/v1
-kind: BPProjectJobTemplate
+kind: BPApplicationJobTemplate
 metadata:
     name: mutable-cicd
 spec:
