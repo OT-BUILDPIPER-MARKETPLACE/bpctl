@@ -2,9 +2,9 @@
 version: api/v1
 kind: BPApplicationJobTemplate
 metadata:
-    name: extensive-ci-v2
+    name: devsecops-ci-v2
 spec:
-    name: extensive-ci-v2
+    name: devsecops-ci-v2
     version: v2
     application: demo-ms
     default: false
@@ -28,15 +28,6 @@ spec:
           environment_variables:
             SONAR_ARGS: "-Dproject.settings=sonar.properties"
             SLEEP_DURATION: 0s
-            VALIDATION_FAILURE_ACTION: WARNING
-        - step_code: OWASP_DEPENDENCY_CHECK
-          step_name: OWASP Dependency Check
-          customVariables: {}
-          is_conditional_step: false
-          environment_variables:
-            OWASP_REPORT: report
-            SLEEP_DURATION: 0s
-            OWASP_REPORT_FORMAT: CSV
             VALIDATION_FAILURE_ACTION: WARNING
         - step_code: LICENSE_FINDER_STEP
           step_name: License Finder Step
@@ -92,6 +83,15 @@ spec:
           step_name: post hook
           is_conditional_step: false
           environment_variables:
+        - step_code: OWASP_DEPENDENCY_CHECK
+          step_name: OWASP Dependency Check
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            OWASP_REPORT: report
+            SLEEP_DURATION: 0s
+            OWASP_REPORT_FORMAT: CSV
+            VALIDATION_FAILURE_ACTION: WARNING
         job_code: build_job
         job_name: Build Job
       - steps:
