@@ -1,0 +1,130 @@
+---
+version: api/v1
+kind: BPApplicationServiceEnvJobTemplate
+metadata:
+    name: s3ha-dev-deploy
+    application_env: dev
+    service: s3ha
+spec:
+  job_code: deploy_job
+  job_step_environment_variables:
+  - step_code: S3_FILE_DOWNLOAD
+    environment_variables:
+    - key: WORKSPACE
+      value: "/bp/workspace"
+      input_type: text
+      is_required: true
+      default_value: "/bp/workspace"
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: S3_BUCKET
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true
+    - key: FILE_TO_BE_UPLOADED
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: pom.xml
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: FILE_KEY
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: pom.xml
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: AWS_ACCESS_KEY_ID
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true
+    - key: AWS_SECRET_ACCESS_KEY
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true
+  - step_code: MANAGE_REMOTE_PROCESS
+    environment_variables:
+    - key: ACTION
+      value: stop
+      input_type: text
+      is_required: true
+      default_value: stop
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: PROCESS
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: tomcat9
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: HOST
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: app
+      does_default_active: Y
+      is_trigger_time_modify: true
+  - step_code: MANAGE_REMOTE_PROCESS
+    environment_variables:
+    - key: ACTION
+      value: stop
+      input_type: text
+      is_required: true
+      default_value: stop
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: PROCESS
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: tomcat9
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: HOST
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: app
+      does_default_active: Y
+      is_trigger_time_modify: true
+  - step_code: SECURE_COPY
+    environment_variables:
+    - key: WORKSPACE
+      value: "/bp/workspace"
+      input_type: text
+      is_required: true
+      default_value: "/bp/workspace"
+      does_default_active: Y
+      is_trigger_time_modify: true
+    - key: LOCAL_FILE_PATH
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true
+    - key: TARGET_SERVER_ALIAS
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true
+    - key: TARGET_FILE_PATH
+      value: rr
+      input_type: text
+      is_required: true
+      default_value: ''
+      does_default_active: N
+      is_trigger_time_modify: true

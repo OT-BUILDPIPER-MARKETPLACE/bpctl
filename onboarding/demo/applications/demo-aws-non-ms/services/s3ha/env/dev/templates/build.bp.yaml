@@ -1,0 +1,79 @@
+---
+version: api/v1
+kind: BPApplicationServiceEnvJobTemplate
+metadata:
+    name: s3ha-dev-build
+    application_env: dev
+    service: s3ha
+spec:
+    job_code: build_job
+    job_step_environment_variables:
+    - step_code: CLONING_REPOSITORY
+      environment_variables:
+      - value: s3ha
+        integration: GIT_REPO
+        is_trigger_time_modify: false
+      - key: GIT_BRANCH
+        value: master
+        is_trigger_time_modify: true
+    - step_code: MAVEN_EXECUTE
+      environment_variables:
+      - key: WORKSPACE
+        value: "/bp/workspace"
+        input_type: text
+        is_required: true
+        default_value: "/bp/workspace"
+        does_default_active: Y
+        is_trigger_time_modify: true
+      - key: INSTRUCTION
+        value: compile
+        input_type: text
+        is_required: true
+        default_value: compile
+        does_default_active: Y
+        is_trigger_time_modify: true
+    - step_code: S3_FILE_UPLOAD
+      environment_variables:
+      - key: WORKSPACE
+        value: "/bp/workspace"
+        input_type: text
+        is_required: true
+        default_value: "/bp/workspace"
+        does_default_active: Y
+        is_trigger_time_modify: true
+      - key: S3_BUCKET
+        value: rr
+        input_type: text
+        is_required: true
+        default_value: ''
+        does_default_active: N
+        is_trigger_time_modify: true
+      - key: FILE_TO_BE_UPLOADED
+        value: rr
+        input_type: text
+        is_required: true
+        default_value: pom.xml
+        does_default_active: Y
+        is_trigger_time_modify: true
+      - key: FILE_KEY
+        value: rr
+        input_type: text
+        is_required: true
+        default_value: pom.xml
+        does_default_active: Y
+        is_trigger_time_modify: true
+      - key: AWS_ACCESS_KEY_ID
+        value: rr
+        input_type: text
+        is_required: true
+        default_value: ''
+        does_default_active: N
+        is_trigger_time_modify: true
+      - key: AWS_SECRET_ACCESS_KEY
+        value: rr
+        input_type: text
+        is_required: true
+        default_value: ''
+        does_default_active: N
+        is_trigger_time_modify: true
+ 
