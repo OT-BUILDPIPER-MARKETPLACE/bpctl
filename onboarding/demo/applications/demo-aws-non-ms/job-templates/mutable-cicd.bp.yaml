@@ -17,7 +17,7 @@ spec:
           step_name: clone_repo
           is_conditional_step: false
           environment_variables:
-        - step_code: MVN_EXECUTE
+        - step_code: MAVEN_EXECUTE
           step_name: Maven Execute
           is_conditional_step: false
           environment_variables:
@@ -25,14 +25,20 @@ spec:
             value: "/bp/workspace"
             isCustomVar: false
           - key: INSTRUCTION
-            value: package
+            value: compile
             isCustomVar: false
-        - step_code: S3_FILE_UPLOADER
+        - step_code: S3_FILE_UPLOAD
           step_name: S3 File Upload
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
             value: "/bp/workspace"
+            isCustomVar: false
+          - key: FILE_TO_BE_UPLOADED
+            value: pom.xml
+            isCustomVar: false
+          - key: FILE_KEY
+            value: pom.xml
             isCustomVar: false
         job_code: build_job
         job_name: Build Job
@@ -40,12 +46,18 @@ spec:
         - key: PROJECT_NAME
           value: Buildpiper
       - steps:
-        - step_code: S3_FILE_DOWNLOADER
+        - step_code: S3_FILE_DOWNLOAD
           step_name: S3 File Download
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
             value: "/bp/workspace"
+            isCustomVar: false
+          - key: FILE_TO_BE_UPLOADED
+            value: pom.xml
+            isCustomVar: false
+          - key: FILE_KEY
+            value: pom.xml
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -57,12 +69,8 @@ spec:
           - key: PROCESS
             value: tomcat9
             isCustomVar: false
-        - step_code: SCP
-          step_name: Secure Copy
-          is_conditional_step: false
-          environment_variables:
-          - key: WORKSPACE
-            value: "/bp/workspace"
+          - key: HOST
+            value: app
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -71,10 +79,21 @@ spec:
           - key: ACTION
             value: start
             isCustomVar: false
+          - key: PROCESS
+            value: tomcat9
+            isCustomVar: false
+          - key: HOST
+            value: app
+            isCustomVar: false
+        - step_code: SECURE_COPY
+          step_name: Secure Copy
+          is_conditional_step: false
+          environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
         job_code: deploy_job
         job_name: deploy_Job
-      default: true
-
-     
+      default: true    
 
 
