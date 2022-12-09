@@ -14,7 +14,7 @@ spec:
       jobs:
       - steps:
         - step_code: CLONING_REPOSITORY
-          step_name: clone_repo
+          step_name: Clone Repository
           is_conditional_step: false
           environment_variables:
         - step_code: PRE_HOOKS
