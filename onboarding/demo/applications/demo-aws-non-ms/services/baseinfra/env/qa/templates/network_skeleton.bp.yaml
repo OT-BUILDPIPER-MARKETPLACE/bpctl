@@ -2,13 +2,14 @@
 version: api/v1
 kind: BPApplicationServiceEnvJobTemplate
 metadata:
-    name: baseinfra-dev-network_skeleton
+    name: baseinfra-qa-network_skeleton
     application_env: qa
     service: baseinfra
 spec:
     job_code: NETWORK_SKELETON
     job_step_environment_variables:
-    - step_code: CLONING_REPOSITORY
+    - order: 0
+      step_code: CLONING_REPOSITORY
       environment_variables:
       - value: s3ha
         integration: GIT_REPO
@@ -16,7 +17,8 @@ spec:
       - key: GIT_BRANCH
         value: master
         is_trigger_time_modify: true
-    - step_code: NETWORK_SKELETON_STEP
+    - order: 1
+      step_code: NETWORK_SKELETON_STEP
       environment_variables:
       - key: TF_CODE_LOCATION
         value: terraform/network_skeleton/

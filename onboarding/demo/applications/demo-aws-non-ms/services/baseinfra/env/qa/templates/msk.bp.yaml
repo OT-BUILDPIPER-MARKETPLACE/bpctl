@@ -2,13 +2,14 @@
 version: api/v1
 kind: BPApplicationServiceEnvJobTemplate
 metadata:
-    name: baseinfra-dev-msk
+    name: baseinfra-qa-msk
     application_env: qa
     service: baseinfra
 spec:
-    job_code: NETWORK_SKELETON
+    job_code: MSK
     job_step_environment_variables:
-    - step_code: CLONING_REPOSITORY
+    - order: 0
+      step_code: CLONING_REPOSITORY
       environment_variables:
       - value: s3ha
         integration: GIT_REPO
@@ -16,40 +17,40 @@ spec:
       - key: GIT_BRANCH
         value: master
         is_trigger_time_modify: true
-    - step_code: NETWORK_SKELETON_STEP
+    - order: 1
+      step_code: MSK
       environment_variables:
-      - key: TF_CODE_LOCATION
-        value: terraform/msk/
-        input_type: text
-        is_required: true
-        default_value: terraform/msk/
-        does_default_active: Y
-        is_trigger_time_modify: true
-      - key: AWS_ACCESS_KEY_ID
-        value: aaa
-        input_type: text
-        is_required: true
-        default_value: ''
-        does_default_active: N
-        is_trigger_time_modify: true
-      - key: AWS_SECRET_ACCESS_KEY
-        value: aaa
-        input_type: text
-        is_required: true
-        default_value: ''
-        does_default_active: N
-        is_trigger_time_modify: true
-      - key: INSTRUCTION
-        value: plan
-        input_type: text
-        is_required: true
-        default_value: plan
-        does_default_active: Y
-        is_trigger_time_modify: true
       - key: WORKSPACE
         value: "/bp/workspace"
         input_type: text
         is_required: true
         default_value: "/bp/workspace"
         does_default_active: Y
+        is_trigger_time_modify: false
+      - key: TF_CODE_LOCATION
+        value: terraform/msk/
+        input_type: text
+        is_required: true
+        default_value: terraform/msk
+        does_default_active: Y
         is_trigger_time_modify: true
+      - key: AWS_ACCESS_KEY_ID
+        value: rr
+        input_type: text
+        is_required: true
+        does_default_active: N
+        is_trigger_time_modify: true
+      - key: AWS_SECRET_ACCESS_KEY
+        value: rr
+        input_type: text
+        is_required: true
+        does_default_active: N
+        is_trigger_time_modify: true
+      - key: INSTRUCTION
+        value: plan
+        input_type: select
+        is_required: true
+        default_value: plan
+        does_default_active: Y
+        is_trigger_time_modify: true
+        select_dropdown_options: plan,apply,destroy

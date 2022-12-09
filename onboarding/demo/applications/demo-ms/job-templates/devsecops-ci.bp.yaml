@@ -14,7 +14,7 @@ spec:
       jobs:
       - steps:
         - step_code: CLONING_REPOSITORY
-          step_name: clone_repo
+          step_name: Clone Repository
           is_conditional_step: false
           environment_variables:
         - step_code: PRE_HOOKS
@@ -92,6 +92,15 @@ spec:
             SLEEP_DURATION: 0s
             OWASP_REPORT_FORMAT: CSV
             VALIDATION_FAILURE_ACTION: WARNING
+        - step_code: WORKSPACE_PUBLISHER
+          step_name: Workspace Publisher
+          customVariables: {}
+          is_conditional_step: false
+          environment_variables:
+            WORKSPACE: "/bp/workspace"
+            EXECUTION_DIR: "/bp/execution_dir"
+            SLEEP_DURATION: 5s
+            FOLDER_TO_BE_COPIED: ''
         job_code: build_job
         job_name: Build Job
       - steps:
