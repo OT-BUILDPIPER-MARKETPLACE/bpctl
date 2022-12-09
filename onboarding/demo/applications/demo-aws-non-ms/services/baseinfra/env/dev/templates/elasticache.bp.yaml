@@ -6,7 +6,7 @@ metadata:
     application_env: dev
     service: baseinfra
 spec:
-    job_code: NETWORK_SKELETON
+    job_code: ELASTICACHE
     job_step_environment_variables:
     - step_code: CLONING_REPOSITORY
       environment_variables:
@@ -16,8 +16,15 @@ spec:
       - key: GIT_BRANCH
         value: master
         is_trigger_time_modify: true
-    - step_code: NETWORK_SKELETON_STEP
+    - step_code: AWS_ELASTICACHE
       environment_variables:
+      - key: WORKSPACE
+        value: "/bp/workspace"
+        input_type: text
+        is_required: true
+        default_value: "/bp/workspace"
+        does_default_active: Y
+        is_trigger_time_modify: false
       - key: TF_CODE_LOCATION
         value: terraform/elasticache/
         input_type: text
@@ -26,30 +33,22 @@ spec:
         does_default_active: Y
         is_trigger_time_modify: true
       - key: AWS_ACCESS_KEY_ID
-        value: aaa
+        value: rr
         input_type: text
         is_required: true
-        default_value: ''
         does_default_active: N
         is_trigger_time_modify: true
       - key: AWS_SECRET_ACCESS_KEY
-        value: aaa
+        value: rr
         input_type: text
         is_required: true
-        default_value: ''
         does_default_active: N
         is_trigger_time_modify: true
       - key: INSTRUCTION
-        value: plan
-        input_type: text
+        value: apply
+        input_type: select
         is_required: true
-        default_value: plan
+        default_value: apply
         does_default_active: Y
         is_trigger_time_modify: true
-      - key: WORKSPACE
-        value: "/bp/workspace"
-        input_type: text
-        is_required: true
-        default_value: "/bp/workspace"
-        does_default_active: Y
-        is_trigger_time_modify: true
+        select_dropdown_options: plan,apply,destroy

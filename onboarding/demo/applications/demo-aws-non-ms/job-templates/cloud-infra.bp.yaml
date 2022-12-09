@@ -15,14 +15,14 @@ spec:
       - steps:
         - step_code: CLONING_REPOSITORY
           step_name: Clone Repository
+          order: 0
           is_conditional_step: false
-          environment_variables:
         - step_code: NETWORK_SKELETON
           step_name: AWS Network Skeleton Step
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
-            value: /bp/workspace
+            value: "/bp/workspace"
             isCustomVar: false
           - key: TF_CODE_LOCATION
             value: terraform/network_skeleton
@@ -34,18 +34,21 @@ spec:
         job_name: Network Skeleton
         environment_variables:
         - key: PROJECT_NAME
-          value: Buildpiper      
+          value: Buildpiper
       - steps:
         - step_code: CLONING_REPOSITORY
           step_name: Clone Repository
+          order: 0
           is_conditional_step: false
           environment_variables:
+          - value: s3ha
+            integration: GIT_REPO
         - step_code: AWS_ELASTICACHE
           step_name: AWS Elasticache step
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
-            value: /bp/workspace
+            value: "/bp/workspace"
             isCustomVar: false
           - key: TF_CODE_LOCATION
             value: terraform/elasticache/
@@ -61,14 +64,17 @@ spec:
       - steps:
         - step_code: CLONING_REPOSITORY
           step_name: Clone Repository
+          order: 0
           is_conditional_step: false
           environment_variables:
+          - value: s3ha
+            integration: GIT_REPO
         - step_code: EKS
           step_name: AWS EKS Step
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
-            value: /bp/workspace
+            value: "/bp/workspace"
             isCustomVar: false
           - key: TF_CODE_LOCATION
             value: terraform/eks
@@ -84,14 +90,17 @@ spec:
       - steps:
         - step_code: CLONING_REPOSITORY
           step_name: Clone Repository
+          order: 0
           is_conditional_step: false
           environment_variables:
+          - value: s3ha
+            integration: GIT_REPO
         - step_code: MSK
           step_name: AWS MSK Step
           is_conditional_step: false
           environment_variables:
           - key: WORKSPACE
-            value: /bp/workspace
+            value: "/bp/workspace"
             isCustomVar: false
           - key: TF_CODE_LOCATION
             value: terraform/msk

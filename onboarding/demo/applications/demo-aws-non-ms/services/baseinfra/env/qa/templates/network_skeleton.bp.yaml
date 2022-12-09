@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPApplicationServiceEnvJobTemplate
 metadata:
-    name: baseinfra-dev-network_skeleton
+    name: baseinfra-qa-network_skeleton
     application_env: qa
     service: baseinfra
 spec:
