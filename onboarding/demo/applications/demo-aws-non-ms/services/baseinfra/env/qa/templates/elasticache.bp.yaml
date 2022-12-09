@@ -8,7 +8,8 @@ metadata:
 spec:
     job_code: ELASTICACHE
     job_step_environment_variables:
-    - step_code: CLONING_REPOSITORY
+    - order: 0
+      step_code: CLONING_REPOSITORY
       environment_variables:
       - value: s3ha
         integration: GIT_REPO
@@ -16,7 +17,8 @@ spec:
       - key: GIT_BRANCH
         value: master
         is_trigger_time_modify: true
-    - step_code: AWS_ELASTICACHE
+    - order: 1
+      step_code: AWS_ELASTICACHE
       environment_variables:
       - key: WORKSPACE
         value: "/bp/workspace"
