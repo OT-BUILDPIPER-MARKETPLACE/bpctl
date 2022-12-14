@@ -25,7 +25,7 @@ spec:
             value: "/bp/workspace"
             isCustomVar: false
           - key: INSTRUCTION
-            value: compile
+            value: "clean package"
             isCustomVar: false
         - step_code: S3_FILE_UPLOAD
           step_name: S3 File Upload
@@ -35,10 +35,10 @@ spec:
             value: "/bp/workspace"
             isCustomVar: false
           - key: FILE_TO_BE_UPLOADED
-            value: pom.xml
+            value: ""
             isCustomVar: false
           - key: FILE_KEY
-            value: pom.xml
+            value: ""
             isCustomVar: false
         job_code: build_job
         job_name: Build Job
@@ -53,11 +53,11 @@ spec:
           - key: WORKSPACE
             value: "/bp/workspace"
             isCustomVar: false
-          - key: FILE_TO_BE_UPLOADED
-            value: pom.xml
+          - key: FILE_TO_BE_DOWNLOADED
+            value: ""
             isCustomVar: false
           - key: FILE_KEY
-            value: pom.xml
+            value: ""
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -67,10 +67,10 @@ spec:
             value: stop
             isCustomVar: false
           - key: PROCESS
-            value: tomcat9
+            value: ""
             isCustomVar: false
           - key: HOST
-            value: app
+            value: ""
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -80,10 +80,10 @@ spec:
             value: start
             isCustomVar: false
           - key: PROCESS
-            value: tomcat9
+            value: ""
             isCustomVar: false
           - key: HOST
-            value: app
+            value: ""
             isCustomVar: false
         - step_code: SECURE_COPY
           step_name: Secure Copy
