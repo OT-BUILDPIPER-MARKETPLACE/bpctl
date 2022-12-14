@@ -77,7 +77,7 @@ spec:
             value: "/bp/workspace"
             isCustomVar: false
           - key: TF_CODE_LOCATION
-            value: terraform/eks
+            value: terraform/eks/
             isCustomVar: false
           - key: INSTRUCTION
             value: apply
