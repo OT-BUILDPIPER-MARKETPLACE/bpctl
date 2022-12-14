@@ -72,6 +72,13 @@ spec:
           - key: HOST
             value: ""
             isCustomVar: false
+        - step_code: SECURE_COPY
+          step_name: Secure Copy
+          is_conditional_step: false
+          environment_variables:
+          - key: WORKSPACE
+            value: "/bp/workspace"
+            isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
           is_conditional_step: false
@@ -84,13 +91,6 @@ spec:
             isCustomVar: false
           - key: HOST
             value: ""
-            isCustomVar: false
-        - step_code: SECURE_COPY
-          step_name: Secure Copy
-          is_conditional_step: false
-          environment_variables:
-          - key: WORKSPACE
-            value: "/bp/workspace"
             isCustomVar: false
         job_code: deploy_job
         job_name: deploy_Job
