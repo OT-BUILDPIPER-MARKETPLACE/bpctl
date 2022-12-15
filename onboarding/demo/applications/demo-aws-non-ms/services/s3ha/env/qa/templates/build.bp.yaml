@@ -8,7 +8,8 @@ metadata:
 spec:
     job_code: build_job
     job_step_environment_variables:
-    - step_code: CLONING_REPOSITORY
+    - order: 0
+      step_code: CLONING_REPOSITORY
       environment_variables:
       - value: s3ha
         integration: GIT_REPO
@@ -16,7 +17,8 @@ spec:
       - key: GIT_BRANCH
         value: master
         is_trigger_time_modify: true
-    - step_code: MAVEN_EXECUTE
+    - order: 1
+      step_code: MAVEN_EXECUTE
       environment_variables:
       - key: WORKSPACE
         value: "/bp/workspace"
@@ -26,13 +28,18 @@ spec:
         does_default_active: Y
         is_trigger_time_modify: true
       - key: INSTRUCTION
-        value: compile
-        input_type: text
+        value: package
+        input_type: select
         is_required: true
-        default_value: compile
+        default_value: package
         does_default_active: Y
         is_trigger_time_modify: true
-    - step_code: S3_FILE_UPLOAD
+        select_dropdown_options: validate,initialize,compile,test,package,integration-test,verify,install,deploy,clean
+      - key: SLEEP_DURATION
+        value: 5s
+        is_trigger_time_modify: true
+    - order: 2
+      step_code: S3_FILE_UPLOAD
       environment_variables:
       - key: WORKSPACE
         value: "/bp/workspace"
@@ -42,38 +49,37 @@ spec:
         does_default_active: Y
         is_trigger_time_modify: true
       - key: S3_BUCKET
-        value: rr
+        value: bp-app-artefacts
         input_type: text
         is_required: true
         default_value: ''
         does_default_active: N
         is_trigger_time_modify: true
       - key: FILE_TO_BE_UPLOADED
-        value: rr
+        value: target/Spring3HibernateApp.war
         input_type: text
         is_required: true
-        default_value: pom.xml
-        does_default_active: Y
+        default_value: ''
+        does_default_active: N
         is_trigger_time_modify: true
       - key: FILE_KEY
-        value: rr
+        value: s3ha/live/ROOT.war
         input_type: text
         is_required: true
-        default_value: pom.xml
-        does_default_active: Y
+        default_value: ''
+        does_default_active: N
         is_trigger_time_modify: true
       - key: AWS_ACCESS_KEY_ID
-        value: rr
+        value: ''
         input_type: text
         is_required: true
         default_value: ''
         does_default_active: N
         is_trigger_time_modify: true
       - key: AWS_SECRET_ACCESS_KEY
-        value: rr
+        value: ''
         input_type: text
         is_required: true
         default_value: ''
         does_default_active: N
         is_trigger_time_modify: true
- 

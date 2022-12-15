@@ -13,7 +13,8 @@ spec:
     job_template:
       jobs:
       - steps:
-        - step_code: CLONING_REPOSITORY
+        - order: 0
+          step_code: CLONING_REPOSITORY
           step_name: Clone Repository
           is_conditional_step: false
           environment_variables:
@@ -25,20 +26,29 @@ spec:
             value: "/bp/workspace"
             isCustomVar: false
           - key: INSTRUCTION
-            value: "clean package"
+            value: package
             isCustomVar: false
         - step_code: S3_FILE_UPLOAD
           step_name: S3 File Upload
           is_conditional_step: false
           environment_variables:
+          - key: S3_BUCKET
+            value: ''
+            isCustomVar: false
           - key: WORKSPACE
             value: "/bp/workspace"
             isCustomVar: false
           - key: FILE_TO_BE_UPLOADED
-            value: ""
+            value: ''
             isCustomVar: false
           - key: FILE_KEY
-            value: ""
+            value: ''
+            isCustomVar: false
+          - key: AWS_ACCESS_KEY_ID
+            value: ''
+            isCustomVar: false
+          - key: AWS_SECRET_ACCESS_KEY
+            value: ''
             isCustomVar: false
         job_code: build_job
         job_name: Build Job
@@ -50,14 +60,23 @@ spec:
           step_name: S3 File Download
           is_conditional_step: false
           environment_variables:
+          - key: S3_BUCKET
+            value: ''
+            isCustomVar: false
           - key: WORKSPACE
             value: "/bp/workspace"
             isCustomVar: false
-          - key: FILE_TO_BE_DOWNLOADED
-            value: ""
+          - key: FILE_PATH
+            value: ''
             isCustomVar: false
           - key: FILE_KEY
-            value: ""
+            value: ''
+            isCustomVar: false
+          - key: AWS_ACCESS_KEY_ID
+            value: ''
+            isCustomVar: false
+          - key: AWS_SECRET_ACCESS_KEY
+            value: ''
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -67,10 +86,10 @@ spec:
             value: stop
             isCustomVar: false
           - key: PROCESS
-            value: ""
+            value: ''
             isCustomVar: false
           - key: HOST
-            value: ""
+            value: ''
             isCustomVar: false
         - step_code: SECURE_COPY
           step_name: Secure Copy
@@ -78,6 +97,15 @@ spec:
           environment_variables:
           - key: WORKSPACE
             value: "/bp/workspace"
+            isCustomVar: false
+          - key: LOCAL_FILE_PATH
+            value: ''
+            isCustomVar: false
+          - key: TARGET_SERVER_ALIAS
+            value: ''
+            isCustomVar: false
+          - key: TARGET_FILE_PATH
+            value: ''
             isCustomVar: false
         - step_code: MANAGE_REMOTE_PROCESS
           step_name: Manage Remote Process
@@ -87,13 +115,13 @@ spec:
             value: start
             isCustomVar: false
           - key: PROCESS
-            value: ""
+            value: ''
             isCustomVar: false
           - key: HOST
-            value: ""
+            value: ''
             isCustomVar: false
         job_code: deploy_job
         job_name: deploy_Job
-      default: true    
+      default: true
 
 
