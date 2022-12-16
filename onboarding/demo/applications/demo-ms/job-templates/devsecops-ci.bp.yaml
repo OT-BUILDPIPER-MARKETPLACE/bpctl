@@ -83,15 +83,6 @@ spec:
           step_name: post hook
           is_conditional_step: false
           environment_variables:
-        - step_code: OWASP_DEPENDENCY_CHECK
-          step_name: OWASP Dependency Check
-          customVariables: {}
-          is_conditional_step: false
-          environment_variables:
-            OWASP_REPORT: report
-            SLEEP_DURATION: 0s
-            OWASP_REPORT_FORMAT: CSV
-            VALIDATION_FAILURE_ACTION: WARNING
         - step_code: WORKSPACE_PUBLISHER
           step_name: Workspace Publisher
           customVariables: {}
