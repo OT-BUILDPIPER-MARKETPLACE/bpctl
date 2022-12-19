@@ -28,7 +28,9 @@ function demoEnvironments() {
     printDigitalMessage "Great let's start"
     printDigitalMessage "As you know without environments we have no place where microservices can be deployed"
     printDigitalMessage "So let's onboard 2 environments first, dev & qa"
+    cat environments/dev.bp.yaml
     bpctl apply -f environments/dev.bp.yaml
+    cat environments/qa.bp.yaml
     bpctl apply -f environments/qa.bp.yaml
     printDigitalMessage "Want to view the environments?"
     printDigitalMessage "http://demo.buildpiper.in:56080/application/11/env/list"
