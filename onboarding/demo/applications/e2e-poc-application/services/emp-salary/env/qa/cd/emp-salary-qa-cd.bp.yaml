@@ -1,0 +1,41 @@
+---
+version: api/v1
+kind: BPServiceCD
+metadata:
+  name: emp-salary-cd
+  application: e2e-poc-application
+  environment_master: qa
+  service: emp-salary
+spec:
+  application_env: qa
+  service_name: salary
+  image_name: ot-micro-salary-stage
+  deployment_name: salary
+  desired_replication: 1
+  requests_memory_quota: 100
+  requests_cpu_quota: 100
+  limits_cpu_quota: 100
+  limits_memory_quota: 100
+  env_cd_configmap: [ ]
+  env_cd_secret: [ ]
+  env_cd_pvc_variable: [ ]
+  entrypoint:
+  env_cd_deploy_variable: [ ]
+  env_cd_deployment_strategy:
+    max_surge: 100%
+    max_unavailable: 5%
+    minimum_ready: 0
+    progress_deadline: 600
+    termination_grace_period: 30
+    revision_history_limit: 10
+    release_template:
+  labels: [ ]
+  annotations: [ ]
+  env_cd_hook: [ ]
+  env_cd_access_detail:
+    - name: ot-emp-ui
+      target_port: 8080
+      protocol: TCP
+      port: 8080
+      access_level: PRIVATE
+      expose_path:

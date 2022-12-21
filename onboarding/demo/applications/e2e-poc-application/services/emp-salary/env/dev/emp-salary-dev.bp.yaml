@@ -1,0 +1,20 @@
+---
+version: api/v1
+kind: BPServiceEnv
+metadata:
+  name: emp-salary-dev-env
+  service: emp-salary
+  application: e2e-poc-application
+spec:
+  project_env: dev
+  manual_build: true
+  manual_deploy: true
+  project_job_template: devsecops-ci-v2
+  env_role_access:
+    - project_role: DEV
+      access: true
+    - project_role: QA
+      access: true
+    - project_role: DEVOPS
+      access: true
+  environment_master: dev

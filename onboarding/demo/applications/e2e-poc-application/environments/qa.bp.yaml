@@ -1,0 +1,15 @@
+---
+version: api/v1
+kind: BPApplicationEnv
+metadata:
+  name: qa
+spec:
+  environment_master: qa
+  application: e2e-poc-application
+  cluster: e2e-poc-cluster
+  namespace: buildpiper-demo-qa
+  manual_build: true
+  manual_deploy: true
+  registry: nexus
+  # vault_access_token: 
+  # sonar_access_token: 

@@ -1,0 +1,17 @@
+---
+version: api/v1
+kind: BPApplication
+metadata:
+  name: e2e-poc-application
+spec:
+  description: application for ms
+  project_admin_email:
+    - sandeep@opstree.com
+    - priyanshi.chauhan@opstree.com
+    - siddharth.gupta@opstree.com 
+  project_cluster:
+    - dedicated: false
+      cluster: e2e-poc-cluster
+      project_cluster_namespace:
+        - buildpiper-demo-dev
+        - buildpiper-demo-qa
