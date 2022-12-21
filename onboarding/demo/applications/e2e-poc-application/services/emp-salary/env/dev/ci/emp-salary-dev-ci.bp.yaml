@@ -1,0 +1,15 @@
+---
+version: api/v1
+kind: BPServiceCI
+metadata:
+  name: emp-salary-ci
+  application: e2e-poc-application
+  environment_master: dev
+  service: emp-salary
+spec:
+  git_repo: ot-micro-salary 
+  image_name: ot-micro-salary-stage
+  dockerfile_path: Dockerfile:.
+  branch_name: master
+  language: JAVA
+  application_env: dev

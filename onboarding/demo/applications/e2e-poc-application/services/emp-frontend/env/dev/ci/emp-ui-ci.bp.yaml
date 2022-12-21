@@ -1,0 +1,15 @@
+---
+version: api/v1
+kind: BPServiceCI
+metadata:
+  name: emp-frontend-ci
+  application: e2e-poc-application
+  environment_master: dev
+  service: emp-frontend
+spec:
+  git_repo: OT-Microservice
+  image_name: ot-micro-frontend-stage
+  dockerfile_path: Dockerfile:frontend
+  branch_name: master
+  language: JAVA
+  application_env: dev

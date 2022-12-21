@@ -5,4 +5,4 @@ metadata:
   name: s3ha
 spec:
    git_provider: github
-   url: https://github.com/opstree/spring3hibernate.git
+   url: https://github.com/opstree/spring3hibernate

@@ -1,0 +1,9 @@
+---
+version: api/v1
+kind: BPService
+metadata:
+  name: emp-salary
+spec:
+  build_strategy: EVERY
+  external_name: emp-salary-app
+  application: e2e-poc-application
