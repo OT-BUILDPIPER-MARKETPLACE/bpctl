@@ -64,7 +64,7 @@ spec:
               \"plain_text\", \t\t\t\t\t\"text\": \"Click Here\", \t\t\t\t\t\"emoji\":
               true \t\t\t\t}, \t\t\t\t\"value\": \"click_me_123\", \t\t\t\t\"url\": \"{{DNS_URI}}/logs?global_task_id={{GLOBAL_TASK_ID}}\",
               \t\t\t\t\"action_id\": \"button-action\" \t\t\t} \t\t} \t] }"
-            DNS_URI: https://app.buildpiper.io
+            DNS_URI: ''
             COMPONENT_NAME: "$COMPONENT_NAME"
             SLACK_HOOK_URL: https://hooks.slack.com/services/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
             SLEEP_DURATION: 5s
