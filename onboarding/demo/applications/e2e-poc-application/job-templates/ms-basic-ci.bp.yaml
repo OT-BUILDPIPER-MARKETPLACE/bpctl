@@ -66,7 +66,7 @@ spec:
               \t\t\t\t\"action_id\": \"button-action\" \t\t\t} \t\t} \t] }"
             DNS_URI: ''
             COMPONENT_NAME: "$COMPONENT_NAME"
-            SLACK_HOOK_URL: https://hooks.slack.com/services/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
+            SLACK_HOOK_URL: ''
             SLEEP_DURATION: 5s
             BUILD_IMAGE_NAME: BUILD_IMAGE_NAME
             PROJECT_ENV_NAME: "$PROJECT_ENV_NAME"
