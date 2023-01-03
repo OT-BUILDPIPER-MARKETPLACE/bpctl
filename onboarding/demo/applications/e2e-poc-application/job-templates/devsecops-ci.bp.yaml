@@ -92,6 +92,45 @@ spec:
             EXECUTION_DIR: "/bp/execution_dir"
             SLEEP_DURATION: 5s
             FOLDER_TO_BE_COPIED: ''
+        - step_name: Slack Notify
+          step_code: SLACK_NOTIFY
+          is_conditional_step: false
+          customVariables:
+            DNS_URI: true
+            COMPONENT_NAME: true
+            SLEEP_DURATION: true
+            BUILD_IMAGE_NAME: true
+            PROJECT_ENV_NAME: true
+            BUILD_REPOSITORY_TAG: true
+            LAST_ACTIVITY_SUB_TASK_STATUS: true
+          environment_variables:
+            BODY: "{ \t\"blocks\": [ \t\t{ \t\t\t\"type\": \"divider\" \t\t}, \t\t{ \t\t\t\"type\":
+              \"section\", \t\t\t\"text\": { \t\t\t\t\"type\": \"mrkdwn\", \t\t\t\t\"text\":
+              \"Looks like that your build has been *{{LAST_ACTIVITY_SUB_TASK_STATUS}}*\"
+              \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"divider\" \t\t}, \t\t{ \t\t\t\"type\":
+              \"section\", \t\t\t\"text\": { \t\t\t\t\"type\": \"mrkdwn\", \t\t\t\t\"text\":
+              \"*Build Status*\" \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"section\", \t\t\t\"text\":
+              { \t\t\t\t\"type\": \"mrkdwn\", \t\t\t\t\"text\": \"*Service Name*: {{COMPONENT_NAME}}\"
+              \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"section\", \t\t\t\"text\": { \t\t\t\t\"type\":
+              \"mrkdwn\", \t\t\t\t\"text\": \"*Service Environment*: {{PROJECT_ENV_NAME}}\"
+              \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"section\", \t\t\t\"text\": { \t\t\t\t\"type\":
+              \"mrkdwn\", \t\t\t\t\"text\": \"*Task Status*: {{LAST_ACTIVITY_SUB_TASK_STATUS}}\"
+              \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"section\", \t\t\t\"text\": { \t\t\t\t\"type\":
+              \"mrkdwn\", \t\t\t\t\"text\": \"*Image Tag*: {{BUILD_IMAGE_NAME}}:{{BUILD_REPOSITORY_TAG}}\"
+              \t\t\t} \t\t}, \t\t{ \t\t\t\"type\": \"section\", \t\t\t\"text\": { \t\t\t\t\"type\":
+              \"mrkdwn\", \t\t\t\t\"text\": \"*View Logs*\" \t\t\t}, \t\t\t\"accessory\":
+              { \t\t\t\t\"type\": \"button\", \t\t\t\t\"text\": { \t\t\t\t\t\"type\":
+              \"plain_text\", \t\t\t\t\t\"text\": \"Click Here\", \t\t\t\t\t\"emoji\":
+              true \t\t\t\t}, \t\t\t\t\"value\": \"click_me_123\", \t\t\t\t\"url\": \"{{DNS_URI}}/logs?global_task_id={{GLOBAL_TASK_ID}}\",
+              \t\t\t\t\"action_id\": \"button-action\" \t\t\t} \t\t} \t] }"
+            DNS_URI: https://app.buildpiper.io
+            COMPONENT_NAME: "$COMPONENT_NAME"
+            SLACK_HOOK_URL: https://hooks.slack.com/services/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
+            SLEEP_DURATION: 5s
+            BUILD_IMAGE_NAME: BUILD_IMAGE_NAME
+            PROJECT_ENV_NAME: "$PROJECT_ENV_NAME"
+            BUILD_REPOSITORY_TAG: BUILD_REPOSITORY_TAG
+            LAST_ACTIVITY_SUB_TASK_STATUS: "$LAST_ACTIVITY_SUB_TASK_STATUS"
         job_code: build_job
         job_name: Build Job
       - steps:
