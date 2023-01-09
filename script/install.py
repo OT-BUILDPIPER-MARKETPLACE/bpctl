@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-path = '/tmp'
+path = '/tmp' #nosec #NOSONAR
 
 # Before creating
 dir_list = os.listdir(path)

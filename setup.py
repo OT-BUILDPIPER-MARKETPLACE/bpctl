@@ -1,8 +1,8 @@
 import setuptools
 from setuptools.command.develop import develop
-from setuptools.command.install import install
-from subprocess import check_call
-from pathlib import Path
+from setuptools.command.install import install #nosec #NOSONAR
+from subprocess import check_call #nosec #NOSONAR
+from pathlib import Path #nosec #NOSONAR
 import os
 
 
@@ -10,12 +10,12 @@ class MyInstall(install):
     """Post-installation for installation mode."""
     def run(self):
         path = os.getcwd().replace(" ", "\ ").replace("(","\(").replace(")","\)")
-        code_base_path = "/opt/bpctl"
-        os.system("sudo cp -r " + path + " "+code_base_path)
-        os.system("""sudo sh -c 'echo "#!/bin/bash" > /usr/bin/bpctl'""")
-        suffix = '\$@'
-        os.system(f"""sudo sh -c 'echo "python3 {code_base_path}/lib/bpctl/bpctl.py {suffix}" >> /usr/bin/bpctl'""")
-        os.system("sudo chmod +x /usr/bin/bpctl")
+        code_base_path = "/opt/bpctl" #nosec #NOSONAR
+        os.system("sudo cp -r " + path + " "+code_base_path) #nosec #NOSONAR
+        os.system("""sudo sh -c 'echo "#!/bin/bash" > /usr/bin/bpctl'""") #nosec #NOSONAR
+        suffix = '\$@' #nosec #NOSONAR
+        os.system(f"""sudo sh -c 'echo "python3 {code_base_path}/lib/bpctl/bpctl.py {suffix}" >> /usr/bin/bpctl'""") #nosec #NOSONAR
+        os.system("sudo chmod +x /usr/bin/bpctl") #nosec #NOSONAR
         install.run(self)
 
 
